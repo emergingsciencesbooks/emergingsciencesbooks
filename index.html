@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emerging sciences books | Chemistry • Physics • Maths • NDA Books</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Devanagari:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EEE0;
+    --rule:#c7d9e8;
+    --ink:#1B3358;
+    --ink-soft:#3d5273;
+    --red:#C0392B;
+    --gold:#C98A2B;
+    --green:#2E7D5B;
+    --blue:#2255A4;
+    --brown:#B5651D;
+    --purple:#6A4C93;
+    --card:#FBF9F2;
+    --shadow: 0 2px 0 rgba(27,51,88,0.08), 0 8px 20px -12px rgba(27,51,88,0.35);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      repeating-linear-gradient(to bottom, transparent 0 31px, var(--rule) 31px 32px),
+      var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans','IBM Plex Sans Devanagari',sans-serif;
+    line-height:1.5;
+    padding-bottom:90px;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces','IBM Plex Sans Devanagari',serif;
+    font-weight:700;
+    color:var(--ink);
+    margin:0;
+  }
+  .stamp{font-family:'Special Elite',monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+  /* ===== Top bar ===== */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:var(--ink);
+    color:#fff;
+    padding:10px 0;
+    border-bottom:3px solid var(--red);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-badge{
+    width:38px;height:38px;border-radius:50%;
+    border:2px solid #fff;display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:700;font-size:15px;transform:rotate(-6deg);
+  }
+  .brand-name{font-family:'Fraunces',serif;font-weight:700;font-size:19px;letter-spacing:.2px;}
+  .brand-tag{font-size:11px;opacity:.75;margin-top:-2px;}
+  .cart-btn{
+    background:var(--red);color:#fff;border:none;border-radius:8px;
+    padding:9px 16px;font-weight:600;font-size:14px;cursor:pointer;
+    display:flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Sans',sans-serif;
+  }
+  .cart-count{
+    background:#fff;color:var(--red);border-radius:50%;
+    width:20px;height:20px;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700;
+  }
+
+  /* ===== Hero ===== */
+  .hero{padding:44px 0 30px;position:relative;}
+  .hero-eyebrow{
+    font-family:'Special Elite',monospace;color:var(--red);font-size:13px;
+    letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;
+  }
+  .hero h1{font-size:clamp(30px,5vw,46px);line-height:1.08;max-width:680px;}
+  .hero p{max-width:560px;color:var(--ink-soft);font-size:16px;margin-top:14px;}
+  .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+  .badge{
+    background:var(--card);border:1.5px dashed var(--ink-soft);
+    border-radius:20px;padding:7px 14px;font-size:13px;font-weight:600;
+    display:flex;align-items:center;gap:6px;
+  }
+
+  /* ===== Section divider ===== */
+  .section{padding:40px 0 10px;}
+  .section-head{
+    display:flex;align-items:center;gap:14px;margin-bottom:22px;
+    border-bottom:2px dashed var(--ink-soft);
+    padding-bottom:12px;
+  }
+  .section-icon{
+    width:46px;height:46px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;color:#fff;
+  }
+  .section-title{font-size:24px;}
+  .section-sub{font-size:12.5px;color:var(--ink-soft);font-family:'Special Elite',monospace;letter-spacing:.5px;}
+
+  /* ===== Grid & cards ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;}
+  .card{
+    background:var(--card);
+    border-radius:10px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    display:flex;flex-direction:column;
+    position:relative;
+    border:1px solid rgba(27,51,88,0.08);
+  }
+  .card-num{
+    position:absolute;top:10px;left:10px;z-index:3;
+    width:30px;height:30px;border-radius:52% 48% 47% 53%/53% 47% 53% 47%;
+    border:2px solid var(--red);color:var(--red);
+    background:rgba(255,255,255,0.85);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Special Elite',monospace;font-size:13px;font-weight:700;
+    transform:rotate(-4deg);
+  }
+  .card-media{
+    height:150px;position:relative;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;
+  }
+  .card-media img{width:100%;height:100%;object-fit:cover;display:block;}
+  .placeholder-cover{
+    width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  }
+  .placeholder-cover svg{width:34px;height:34px;opacity:.9;}
+  .placeholder-cover span{font-size:11px;opacity:.85;font-family:'Special Elite',monospace;}
+  .card-body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .card-title{font-family:'Fraunces',serif;font-weight:600;font-size:15.5px;line-height:1.25;}
+  .card-pub{font-size:12px;color:var(--ink-soft);}
+  .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px;}
+  .tag{
+    font-size:10.5px;background:rgba(27,51,88,0.07);color:var(--ink-soft);
+    padding:2px 8px;border-radius:10px;font-weight:600;
+  }
+  .card-foot{
+    margin-top:auto;padding-top:10px;
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+  }
+  .price{
+    font-family:'Special Elite',monospace;color:var(--red);font-size:16px;
+    border:1.5px dashed var(--red);border-radius:6px;padding:3px 9px;
+    transform:rotate(-2deg);
+  }
+  .price.na{color:var(--ink-soft);border-color:var(--ink-soft);font-size:11.5px;}
+  .add-btn{
+    background:var(--ink);color:#fff;border:none;border-radius:7px;
+    padding:8px 12px;font-weight:600;font-size:12.5px;cursor:pointer;
+    font-family:'IBM Plex Sans',sans-serif;
+  }
+  .add-btn:active{transform:scale(.97);}
+  .qty-row{display:flex;align-items:center;gap:8px;}
+  .qty-row button{
+    width:24px;height:24px;border-radius:50%;border:1px solid var(--ink);
+    background:#fff;cursor:pointer;font-weight:700;line-height:1;
+  }
+
+  /* ===== Info strip ===== */
+  .info-strip{
+    margin-top:50px;background:var(--ink);color:#fff;padding:34px 0;
+  }
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;}
+  .info-item h3{color:#fff;font-size:16px;margin-bottom:6px;}
+  .info-item p{margin:0;color:#c9d6e8;font-size:13.5px;}
+  .footer-note{
+    text-align:center;font-size:12px;color:var(--ink-soft);padding:26px 20px 10px;
+  }
+
+  /* ===== Cart drawer ===== */
+  .overlay{
+    position:fixed;inset:0;background:rgba(27,51,88,.4);z-index:90;
+    display:none;
+  }
+  .overlay.open{display:block;}
+  .drawer{
+    position:fixed;top:0;right:0;height:100%;width:min(400px,92vw);
+    background:var(--paper);z-index:95;
+    transform:translateX(100%);transition:transform .25s ease;
+    display:flex;flex-direction:column;
+    box-shadow:-10px 0 30px rgba(0,0,0,.2);
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{
+    padding:18px 20px;border-bottom:2px dashed var(--ink-soft);
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .drawer-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink);}
+  .drawer-body{flex:1;overflow-y:auto;padding:14px 20px;}
+  .cart-item{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 0;border-bottom:1px dashed rgba(27,51,88,.2);gap:8px;
+  }
+  .cart-item-name{font-size:13.5px;font-weight:600;}
+  .cart-item-meta{font-size:11.5px;color:var(--ink-soft);}
+  .cart-empty{padding:40px 0;text-align:center;color:var(--ink-soft);font-size:14px;}
+  .drawer-foot{padding:16px 20px 22px;border-top:2px dashed var(--ink-soft);}
+  .total-row{display:flex;justify-content:space-between;font-weight:700;font-size:16px;margin-bottom:14px;}
+  .checkout-btn{
+    width:100%;background:var(--red);color:#fff;border:none;border-radius:8px;
+    padding:13px;font-weight:700;font-size:14.5px;cursor:pointer;
+  }
+  .rm-btn{background:none;border:none;color:var(--red);font-size:12px;cursor:pointer;text-decoration:underline;padding:0;}
+
+  /* ===== Checkout modal ===== */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(27,51,88,.5);z-index:100;
+    display:none;align-items:center;justify-content:center;padding:16px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    background:var(--paper);border-radius:12px;max-width:460px;width:100%;
+    max-height:88vh;overflow-y:auto;padding:22px 22px 24px;
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+  }
+  .modal h2{font-size:20px;margin-bottom:4px;}
+  .modal p.sub{font-size:12.5px;color:var(--ink-soft);margin:0 0 16px;}
+  .field{margin-bottom:12px;}
+  .field label{display:block;font-size:12.5px;font-weight:600;margin-bottom:5px;}
+  .field input,.field textarea,.field select{
+    width:100%;padding:9px 10px;border-radius:7px;border:1.5px solid rgba(27,51,88,.25);
+    font-family:inherit;font-size:13.5px;background:#fff;
+  }
+  .pay-options{display:flex;gap:10px;margin-bottom:8px;}
+  .pay-opt{
+    flex:1;border:1.5px solid rgba(27,51,88,.25);border-radius:8px;padding:10px;
+    text-align:center;cursor:pointer;font-size:13px;font-weight:600;
+  }
+  .pay-opt.active{border-color:var(--red);background:rgba(192,57,43,.08);color:var(--red);}
+  .qr-box{
+    border:2px dashed var(--ink-soft);border-radius:10px;padding:16px;text-align:center;
+    margin-top:10px;font-size:12px;color:var(--ink-soft);
+  }
+  .qr-box img{max-width:150px;margin:0 auto 8px;display:block;}
+  .modal-actions{display:flex;gap:10px;margin-top:16px;}
+  .btn-secondary{
+    flex:1;background:#fff;border:1.5px solid var(--ink);color:var(--ink);
+    border-radius:8px;padding:11px;font-weight:600;font-size:13.5px;cursor:pointer;
+  }
+  .btn-primary{
+    flex:1;background:#25D366;border:none;color:#fff;
+    border-radius:8px;padding:11px;font-weight:700;font-size:13.5px;cursor:pointer;
+  }
+  .close-modal{position:absolute;top:14px;right:16px;background:none;border:none;font-size:20px;cursor:pointer;}
+  .modal{position:relative;}
+
+  @media(max-width:560px){
+    .hero{padding:30px 0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-badge">UB</div>
+      <div>
+        <div class="brand-name"></div>
+        <div class="brand-tag">पुरानी किताबें, नई शुरुआत</div>
+      </div>
+    </div>
+    <button class="cart-btn" onclick="openCart()">
+      🛒 Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">// Ledger No. 001 — Class 11-12 · NDA · NEET · JEE</div>
+    <h1>Chemistry, Physics &amp; Maths ki kitabein — seedha ek jagah se.</h1>
+    <p>Second-hand aur reference books, saaf condition mein, seedha aapke ghar tak. Hindi &amp; English medium dono available. Order karein WhatsApp ya email se, payment COD ya UPI.</p>
+    <div class="hero-badges">
+      <div class="badge">💵 Cash on Delivery</div>
+      <div class="badge">📱 UPI Payment</div>
+      <div class="badge">📦 Post Office / Courier Delivery</div>
+      <div class="badge">✉️ Order by Email / WhatsApp</div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" id="catalog"></div>
+
+<!-- ============ INFO STRIP ============ -->
+<div class="info-strip">
+  <div class="wrap info-grid">
+    <div class="info-item">
+      <h3>📦 Shipping</h3>
+      <p>Saari kitaabein Post Office ya Courier ke through bheji jaayengi. Shipping charge order ke weight aur aapke location ke hisaab se alag se laga hai — checkout par confirm kar diya jaayega.</p>
+    </div>
+    <div class="info-item">
+      <h3>💳 Payment</h3>
+      <p>Cash on Delivery (COD) ya UPI — dono available hai. UPI ke liye QR code checkout screen par milega.</p>
+    </div>
+    <div class="info-item">
+      <h3>🖼️ Photos</h3>
+      <p>Kuch images sirf illustration / reference ke liye internet se li gayi hain — asli kitaab ki photo order confirm hone ke baad email par bhej di jaayegi.</p>
+    </div>
+    <div class="info-item">
+      <h3>✉️ Contact</h3>
+      <p id="contactBlock">Email: <strong>unnatibookdepot@gmail.com</strong><br>WhatsApp: <strong>+91-XXXXXXXXXX</strong></p>
+    </div>
+  </div>
+</div>
+<div class="footer-note">emerging sciences books — student-to-student book resale. Prices as listed by seller, negotiable in bulk. © 2026</div>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h2 style="font-size:18px;">आपकी सूची (Your Order)</h2>
+    <button class="drawer-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>Total (books)</span><span id="cartTotal">₹0</span></div>
+    <div style="font-size:11.5px;color:var(--ink-soft);margin-bottom:12px;">+ Shipping charges extra, dispatch ke time confirm honge.</div>
+    <button class="checkout-btn" onclick="openCheckout()">Checkout करें</button>
+  </div>
+</div>
+
+<!-- ============ CHECKOUT MODAL ============ -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="modal">
+    <button class="close-modal" onclick="closeCheckout()">✕</button>
+    <h2>Order Details भरें</h2>
+    <p class="sub">Ye jaankari WhatsApp / Email order message mein saath chali jaayegi.</p>
+    <div class="field">
+      <label>पूरा नाम / Name</label>
+      <input type="text" id="custName" placeholder="Your name">
+    </div>
+    <div class="field">
+      <label>Phone Number</label>
+      <input type="tel" id="custPhone" placeholder="10-digit mobile number">
+    </div>
+    <div class="field">
+      <label>Delivery Address</label>
+      <textarea id="custAddress" rows="3" placeholder="House no, street, city, district, pincode"></textarea>
+    </div>
+    <div class="field">
+      <label>Payment Method</label>
+      <div class="pay-options">
+        <div class="pay-opt active" id="payCOD" onclick="selectPay('COD')">💵 COD</div>
+        <div class="pay-opt" id="payUPI" onclick="selectPay('UPI')">📱 UPI</div>
+      </div>
+    </div>
+    <div class="qr-box" id="qrBox" style="display:none;">
+      <img src="images/upi-qr.png" onerror="this.style.display='none'; document.getElementById('qrFallback').style.display='block';">
+      <div id="qrFallback">UPI QR yahan dikhega — store owner ise images/upi-qr.png mein daalein.</div>
+      <div style="margin-top:6px;">UPI ID: <strong>yourstorename@upi</strong></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="sendEmailOrder()">✉️ Email se Order</button>
+      <button class="btn-primary" onclick="sendWhatsAppOrder()">💬 WhatsApp se Order</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ======================================================
+   🔧 STORE CONFIG — apni asli jaankari yahan daalein
+   ====================================================== */
+const STORE_CONFIG = {
+  name: "emerging sciences books",
+  email: "piyus258258@gmail.com",      // <-- apna email daalein
+  whatsappNumber: "919571642451",           // <-- country code + number, bina + ke
+  upiId: "9571642451-2@ybl"                // <-- apni UPI ID daalein
+};
+
+/* ======================================================
+   CATALOG DATA — seedhe seedhe copy kiya gaya hai note se.
+   Naya book add karna ho to bas ek naya object grid mein daal dein.
+   ====================================================== */
+const CATALOG = [
+  {
+    category: "रसायन विज्ञान — Chemistry",
+    icon: "flask", color: "#2E7D5B",
+    items: [
+      {id:'chem1', title:'NCERT संपूर्ण हल सहित', publisher:'Arihant', cls:'Class 12', medium:'Hindi Medium', price:120, img:'images/chem-1.jpg'},
+      {id:'chem2', title:'Old NCERT Chemistry', publisher:'Raj. Board', cls:'Class 12', medium:'Hindi Medium', price:130, img:'images/chem-2.jpg'},
+      {id:'chem3', title:'Old NCERT Chemistry Complete — Part I', publisher:'NCERT', cls:'Class 12', medium:'Hindi Medium', price:110, img:'images/chem-3.jpg'},
+      {id:'chem4', title:'Old NCERT Chemistry Complete — Part II', publisher:'NCERT', cls:'Class 12', medium:'Hindi Medium', price:65, img:'images/chem-4.jpg'},
+    ]
+  },
+  {
+    category: "भौतिक विज्ञान — Physics",
+    icon: "atom", color: "#2255A4",
+    items: [
+      {id:'phy1', title:'Physics — II', publisher:'Raj Board, SP Publication (2017-18)', cls:'Class 12', medium:'Hindi Medium', price:130, img:'images/phy-1.jpg'},
+      {id:'phy2', title:'Physics NCERT — Part II', publisher:'NCERT (2022)', cls:'Class 12', medium:'Hindi Medium', price:100, img:'images/phy-2.jpg'},
+      {id:'phy3', title:'Physics — Part I', publisher:'NCERT Old (2022 Edition)', cls:'Class 11', medium:'Hindi Medium', price:110, img:'images/phy-3.jpg'},
+      {id:'phy4', title:'Physics (2017-18 Edition)', publisher:'Raj Board, Old', cls:'Class 12', medium:'Hindi Medium', price:130, img:'images/phy-4.jpg'},
+      {id:'phy5', title:'Concepts of Physics — 2', publisher:'H.C. Verma (2011 Edition)', cls:'Class 12', medium:'English Medium', price:135, img:'images/phy-5.jpg'},
+      {id:'phy6', title:'Fundamentals of Physics', publisher:'Halliday / Resnick / Walker (2009)', cls:'Reference', medium:'English Medium', price:350, img:'images/phy-6.jpg'},
+      {id:'phy7', title:'Physics NCERT — Part I', publisher:'NCERT (2022 Edition)', cls:'Class 12', medium:'Hindi Medium', price:140, img:'images/phy-7.jpg'},
+      {id:'phy8', title:'SP Physics — Part I', publisher:'SP Publication (2017-18)', cls:'Class 12', medium:'Hindi Medium', price:100, img:'images/phy-8.jpg'},
+      {id:'phy9', title:'Master the NCERT for NEET/JEE — Physics Vol. 2', publisher:'Arihant', cls:'NEET / JEE', medium:'', price:190, img:'images/phy-9.jpg'},
+    ]
+  },
+  {
+    category: "गणित — Mathematics",
+    icon: "compass", color: "#B5651D",
+    items: [
+      {id:'math1', title:'RD Sharma — Volume I', publisher:'RD Sharma (2023 Edition)', cls:'Class 12', medium:'', price:400, img:'images/math-1.jpg'},
+      {id:'math2', title:'RD Sharma — Volume II', publisher:'RD Sharma (2023 Edition)', cls:'Class 12', medium:'', price:250, img:'images/math-2.jpg'},
+      {id:'math3', title:'MCQs in Mathematics', publisher:'RD Sharma (2023 Edition)', cls:'Class 12', medium:'', price:250, img:'images/math-3.jpg'},
+      {id:'math4', title:'NCERT संपूर्ण हल सहित', publisher:'Arihant, Old', cls:'Class 11', medium:'Hindi Medium', price:null, img:'images/math-4.jpg'},
+      {id:'math5', title:'13 Previous Year Solved Papers — Maths', publisher:'Disha, Topic-wise (2006-2024)', cls:'NDA / NA', medium:'', price:300, img:'images/math-5.jpg'},
+    ]
+  },
+  {
+    category: "सामान्य पुस्तकें — Common Books",
+    icon: "book", color: "#6A4C93",
+    items: [
+      {id:'com1', title:'English-Hindi Translator Expert', publisher:'Arihant, by S.C. Gupta', cls:'', medium:'', price:100, img:'images/com-1.jpg'},
+      {id:'com2', title:'NDA/NA Mock Test + PYQs', publisher:'PW (Sept 2024) — OMR sheet not included', cls:'NDA / NA', medium:'', price:300, img:'images/com-2.jpg'},
+      {id:'com3', title:'NDA/NA PYQ & NAT', publisher:'Disha Publication, Phase I & II (2006-2024)', cls:'NDA / NA', medium:'', price:220, img:'images/com-3.jpg'},
+      {id:'com4', title:'Bilingual Airforce Phase-2 Astra', publisher:'Sarathi — One for All & All for One', cls:'Airforce', medium:'Bilingual', price:null, img:'images/com-4.jpg'},
+    ]
+  }
+];
+
+const ICONS = {
+  flask: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6M10 3v6l-5.5 9.5A1 1 0 0 0 5.4 20h13.2a1 1 0 0 0 .9-1.5L14 9V3"/></svg>',
+  atom: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="1.6" fill="currentColor"/><ellipse cx="12" cy="12" rx="9" ry="3.8"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.8" transform="rotate(120 12 12)"/></svg>',
+  compass: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M14.8 9.2 12.9 14 8 15.8l1.9-4.8z"/></svg>',
+  book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H12v16H5.5A1.5 1.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H12v16h6.5a1.5 1.5 0 0 0 1.5-1.5v-13Z"/></svg>'
+};
+
+let cart = {}; // id -> qty
+
+function renderCatalog(){
+  const root = document.getElementById('catalog');
+  root.innerHTML = '';
+  CATALOG.forEach(section=>{
+    const sec = document.createElement('div');
+    sec.className = 'section';
+    sec.innerHTML = `
+      <div class="section-head">
+        <div class="section-icon" style="background:${section.color}">${ICONS[section.icon]}</div>
+        <div>
+          <div class="section-title">${section.category}</div>
+          <div class="section-sub">${section.items.length} titles available</div>
+        </div>
+      </div>
+      <div class="grid">
+        ${section.items.map((b,i)=>cardHTML(b,i+1,section.color)).join('')}
+      </div>
+    `;
+    root.appendChild(sec);
+  });
+}
+
+function cardHTML(b, num, color){
+  const priceHTML = b.price
+    ? `<div class="price stamp">₹${b.price}</div>`
+    : `<div class="price na stamp">Contact for price</div>`;
+  const addControl = b.price
+    ? (cart[b.id]
+        ? `<div class="qty-row">
+             <button onclick="changeQty('${b.id}',-1)">−</button>
+             <span>${cart[b.id]}</span>
+             <button onclick="changeQty('${b.id}',1)">+</button>
+           </div>`
+        : `<button class="add-btn" onclick="changeQty('${b.id}',1)">+ Add</button>`)
+    : `<button class="add-btn" onclick="contactForPrice('${b.title.replace(/'/g,"\\'")}')">Enquire</button>`;
+
+  return `
+    <div class="card" id="card-${b.id}">
+      <div class="card-num">${num}</div>
+      <div class="card-media" style="background:linear-gradient(135deg, ${color}, ${color}cc)">
+        <img src="${b.img}" alt="${b.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-cover" style="display:none;">
+          ${ICONS[CATALOG.find(s=>s.items.includes(b)).icon]}
+          <span>Photo Coming Soon</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">${b.title}</div>
+        <div class="card-pub">${b.publisher}</div>
+        <div class="tags">
+          ${b.cls ? `<span class="tag">${b.cls}</span>` : ''}
+          ${b.medium ? `<span class="tag">${b.medium}</span>` : ''}
+        </div>
+        <div class="card-foot">
+          ${priceHTML}
+          ${addControl}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function allItems(){
+  return CATALOG.flatMap(s=>s.items);
+}
+
+function changeQty(id, delta){
+  const item = allItems().find(b=>b.id===id);
+  const current = cart[id] || 0;
+  const next = Math.max(0, current + delta);
+  if(next === 0){ delete cart[id]; } else { cart[id] = next; }
+  renderCatalog();
+  renderCart();
+}
+
+function contactForPrice(title){
+  alert("Is kitaab ka price abhi list nahi hai. Kripya WhatsApp/Email par '" + title + "' ka naam likh kar poochh lein.");
+}
+
+function renderCart(){
+  const body = document.getElementById('cartBody');
+  const ids = Object.keys(cart);
+  let total = 0;
+  document.getElementById('cartCount').textContent = ids.reduce((a,id)=>a+cart[id],0);
+
+  if(ids.length === 0){
+    body.innerHTML = `<div class="cart-empty">Abhi tak koi kitaab select nahi ki. Upar se "+ Add" dabaakar list banayein.</div>`;
+  } else {
+    body.innerHTML = ids.map(id=>{
+      const b = allItems().find(x=>x.id===id);
+      const lineTotal = b.price * cart[id];
+      total += lineTotal;
+      return `
+        <div class="cart-item">
+          <div>
+            <div class="cart-item-name">${b.title}</div>
+            <div class="cart-item-meta">Qty: ${cart[id]} × ₹${b.price} = ₹${lineTotal}</div>
+          </div>
+          <button class="rm-btn" onclick="changeQty('${id}', -${cart[id]})">Remove</button>
+        </div>
+      `;
+    }).join('');
+  }
+  document.getElementById('cartTotal').textContent = '₹' + total;
+}
+
+function openCart(){
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+function closeCart(){
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+
+let payMethod = 'COD';
+function selectPay(m){
+  payMethod = m;
+  document.getElementById('payCOD').classList.toggle('active', m==='COD');
+  document.getElementById('payUPI').classList.toggle('active', m==='UPI');
+  document.getElementById('qrBox').style.display = (m==='UPI') ? 'block' : 'none';
+}
+
+function openCheckout(){
+  if(Object.keys(cart).length === 0){
+    alert('Pehle list mein kitaabein add karein.');
+    return;
+  }
+  document.getElementById('checkoutOverlay').classList.add('open');
+}
+function closeCheckout(){
+  document.getElementById('checkoutOverlay').classList.remove('open');
+}
+
+function buildOrderText(){
+  const name = document.getElementById('custName').value || '(name not entered)';
+  const phone = document.getElementById('custPhone').value || '(phone not entered)';
+  const address = document.getElementById('custAddress').value || '(address not entered)';
+  let lines = [`📚 New Order — ${STORE_CONFIG.name}`, ''];
+  let total = 0;
+  Object.keys(cart).forEach(id=>{
+    const b = allItems().find(x=>x.id===id);
+    const lt = b.price * cart[id];
+    total += lt;
+    lines.push(`• ${b.title} (${b.publisher}) — Qty ${cart[id]} × ₹${b.price} = ₹${lt}`);
+  });
+  lines.push('');
+  lines.push(`Subtotal: ₹${total} (+ shipping extra)`);
+  lines.push(`Payment: ${payMethod}`);
+  lines.push('');
+  lines.push(`Name: ${name}`);
+  lines.push(`Phone: ${phone}`);
+  lines.push(`Address: ${address}`);
+  return lines.join('\n');
+}
+
+function sendWhatsAppOrder(){
+  const text = encodeURIComponent(buildOrderText());
+  window.open(`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${text}`, '_blank');
+}
+
+function sendEmailOrder(){
+  const subject = encodeURIComponent(`New Book Order — ${STORE_CONFIG.name}`);
+  const body = encodeURIComponent(buildOrderText());
+  window.location.href = `mailto:${STORE_CONFIG.email}?subject=${subject}&body=${body}`;
+}
+
+renderCatalog();
+renderCart();
+</script>
+</body>
+</html>
